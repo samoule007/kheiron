@@ -1,0 +1,437 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    height: 100px;
+    margin: -8px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 32px auto;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(black, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: 100vh;
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27,31,35,.2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+    border-color: rgba(27,31,35,.35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  
+  <img
+    width="110"
+    height="50"
+    alt="Ce bon vieux  Kheiron"
+    src="http://kheiron.fr/wp-content/uploads/2018/08/Logo-Dark.png"
+  />
+    <div class="spacer"></div>
+
+    <a href="https://twitter.com/MrKheiron">
+    <img
+    width="20"
+    height="20"
+    alt="Angular Logo"
+    src="https://image.flaticon.com/icons/png/512/23/23931.png">
+  </a>
+  
+  <a href="https://www.facebook.com/KheironOfficiel/">
+    <img
+    width="20"
+    height="20"
+    alt="Angular Logo"
+    src="https://image.flaticon.com/icons/png/512/61/61045.png"
+  />
+  </a>
+  <a href="https://www.youtube.com/channel/UCauAWhL009yPNGHjIuGkmqQ/">
+    <img
+    width="20"
+    height="20"
+    alt="Angular Logo"
+    src="http://folieurbaine.com/wp-content/uploads/2019/06/LOGOS-YOUTUBE-NOIR.png"
+  />
+  </a>
+  <a href="https://www.instagram.com/kheiron_/">
+    <img
+    width="20"
+    height="20"
+    alt="Angular Logo"
+    src="https://image.flaticon.com/icons/png/512/87/87390.png"
+  />
+  </a>
+
+</div>
+
+<div class="content" role="main">
+
+  <h1>Bienvenue sur le second site (officiel) de Kheiron ! </h1>
+  <h3>( Parce que c'est pas que un mec dans ta tête)</h3>
+
+
+  <br/>
+  <p style="font-size:20pt;">Bonjour à tous, ce site est un site temporaire pour annoncer le gagnant du petit concours organisée la semaine dernière. C'est lui : </p>
+  <br/>
+  
+<img
+    width="600"
+    height="300"
+    alt="Angular Logo"
+    src="assets/img/Cap.PNG"
+  />
+  <br/>
+  <p style="font-size:20pt;">Ce n'était pas bien difficile... il a juste fait quelques petits montages photo :</p>
+
+  <br/>
+
+  <img
+    width="400"
+    height="600"
+    alt="Angular Logo"
+    src="assets/img/KheironD2PNG.PNG"
+  />
+  <br/>
+
+  <img
+    width="700"
+    height="400"
+    alt="Angular Logo"
+    src="assets/img/avatar2.PNG"
+  />
+  <br/>
+
+  <p style="font-size:20pt;">Bon c'est pas très beau (et c'est pas à cause du modèle) mais au moins ça change des commentaires type :" si tu veux une place tape dans tes mains clap calp"</p>
+  <br/>
+  <h1></h1>
+
+  <p style="font-size:12pt;"> en partenariat avec : </p>
+  <br/>
+  <img
+  width="240"
+  height="80"
+  alt="Angular Logo"
+  src="data:image/png;base64,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"
+/>
+<br/>
+
+<img
+width="80"
+height="80"
+alt="Angular Logo"
+src="https://www.i2coalition.com/wp-content/uploads/2019/08/nord-logo-square@1x.png"
+/>
+<br/>
+
+<p style="font-size:20pt; color: red;"> ma maman </p>
+<br/>
+
+
+
+  <!-- Footer -->
+  <footer>
+      Site très aproximatif made by Sam(uel) Dumoulin 
+      <a href="https://www.facebook.com/samuel.dumoulin.18?ref=bookmarks">
+        <img
+        width="20"
+        height="20"
+        alt="Angular Logo"
+        src="https://image.flaticon.com/icons/png/512/61/61045.png"
+      />
+      </a>
+  </footer>
+
+  <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+  </svg>
+
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+<router-outlet></router-outlet>
